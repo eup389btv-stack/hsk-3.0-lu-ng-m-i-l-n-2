@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kiểm tra trật tự từ tiếng Trung: SVO và Chủ đề–Thuyết</title>
+  <style>
+    :root{--ink:#17233c;--muted:#667085;--blue:#3157d5;--blue2:#6d5de7;--pale:#f2f5ff;--line:#e5e9f2;--good:#13795b;--bad:#c43c4c;--warn:#a56608;--card:#fff}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#f7f9ff,#f6f3ff 55%,#eff8f6);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.55}
+    .shell{max-width:1120px;margin:auto;padding:22px 18px 50px}.hero{background:linear-gradient(130deg,#243fa8,#7259df);color:#fff;border-radius:26px;padding:27px 32px;box-shadow:0 18px 50px #4d59b629}
+    .topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}.page-tabs,.assist-controls{display:flex;gap:8px;padding:5px;background:#e9edfb;border-radius:14px;width:max-content}.page-tabs{margin:0}.page-tab,.assist-toggle{border:0;background:transparent;color:#5d6980;border-radius:10px;padding:10px 16px;font:750 14px inherit;cursor:pointer}.page-tab.active,.assist-toggle.active{background:#fff;color:var(--blue);box-shadow:0 4px 14px #273b6717}.assist-pinyin,.assist-meaning{display:block;margin-top:3px;font-size:13px;line-height:1.35;font-weight:500}.assist-pinyin{color:#6d5de7}.assist-meaning{color:#748096;font-style:italic}.hide-pinyin .assist-pinyin,.hide-meaning .assist-meaning{display:none}
+    .tag{display:inline-block;padding:6px 12px;border-radius:999px;background:#ffffff20;border:1px solid #ffffff38;font-size:13px;font-weight:700;letter-spacing:.02em}.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.12;margin:15px 0 12px}.hero p{max-width:680px;margin:0;color:#eef0ff}.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:14px}.meta span{background:#ffffff16;padding:7px 10px;border-radius:10px}
+    .progress-wrap{background:#f7f9fff2;padding:10px 2px;margin:12px 0}.progress-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:7px}.bar{height:9px;background:#e7eafd;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:7.14%;background:linear-gradient(90deg,var(--blue),#8d61e8);transition:.3s}
+    .question{display:none;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:0;margin:10px 0;box-shadow:0 12px 32px #263b6714;overflow:hidden;min-height:330px;animation:slideIn .26s ease}.question.active{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(440px,1.3fr)}@keyframes slideIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}.context-side{padding:27px 28px;background:linear-gradient(145deg,#f1f4ff,#f7f4ff);border-right:1px solid var(--line)}.answer-side{padding:27px 30px}.qtop{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px;font-weight:700;margin-bottom:17px}.scene-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-weight:850}.scene{margin:8px 0 0;color:#3f4d67;font-size:17px}.prompt{font-size:21px;font-weight:800;margin:0 0 18px}.cn{font-size:19px}.py{display:block;color:#7a8599;font-size:13px;margin-top:2px;font-weight:500}.options{display:grid;gap:12px}.option{display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;padding:14px 16px;border:1.5px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);cursor:pointer;font:inherit;transition:.16s}.option:hover{border-color:#92a3e8;background:#f8f9ff}.option.selected{border-color:var(--blue);background:var(--pale);box-shadow:0 0 0 2px #3157d51b}.letter{display:grid;place-items:center;flex:0 0 27px;height:27px;border-radius:8px;background:#eef1f7;color:#526075;font-weight:800}.selected .letter{background:var(--blue);color:#fff}
+    .actions{display:flex;justify-content:space-between;align-items:center;margin-top:16px}.submit,.restart,.back{border:0;border-radius:14px;padding:13px 24px;background:linear-gradient(120deg,var(--blue),var(--blue2));color:#fff;font:700 16px inherit;cursor:pointer;box-shadow:0 10px 25px #3a54ce35}.back{background:#fff;color:#44516a;border:1px solid var(--line);box-shadow:none}.back:disabled{visibility:hidden}.submit:disabled{filter:grayscale(.65);opacity:.48;cursor:not-allowed}.notice{text-align:center;color:var(--bad);font-size:14px;margin-top:8px;min-height:22px}
+    #result{display:none}.result-card{background:#fff;border-radius:24px;padding:28px;margin-top:24px;border:1px solid var(--line);box-shadow:0 16px 45px #24375d17}.result-head{display:grid;grid-template-columns:110px 1fr;gap:22px;align-items:center}.score-ring{width:108px;height:108px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--blue) var(--pct),#e9edf6 0);position:relative}.score-ring:after{content:"";position:absolute;inset:10px;border-radius:50%;background:#fff}.score-ring b{z-index:1;font-size:23px}.level{font-size:28px;font-weight:850;color:var(--blue);margin:4px 0}.diagnosis{color:#475467;margin:4px 0}.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}.skill{padding:15px;border-radius:14px;background:#f7f8fc}.skill-top{display:flex;justify-content:space-between;font-weight:700;font-size:14px}.mini{height:7px;background:#e4e8f1;border-radius:99px;overflow:hidden;margin-top:9px}.mini i{display:block;height:100%;background:linear-gradient(90deg,#4b6de2,#8262e8)}
+    .route{background:#f2f5ff;border-left:4px solid var(--blue);border-radius:12px;padding:16px 18px}.route h3{margin:0 0 7px}.review h3{margin:24px 0 10px}.review-item{border-top:1px solid var(--line);padding:14px 0}.review-item.good .status{color:var(--good)}.review-item.bad .status{color:var(--bad)}.status{font-weight:800}.explain{color:#58657a;font-size:14px;margin-top:4px}.restart{margin-top:18px;background:#26354f}.footer{text-align:center;color:#8a94a6;font-size:12px;margin-top:28px}
+    #learning,#catalog{display:none}.catalog-hero{background:linear-gradient(130deg,#243fa8,#7259df);color:#fff;border-radius:25px;padding:28px 31px}.catalog-hero h1{margin:6px 0}.catalog-hero p{margin:0;color:#eef0ff;max-width:700px}.catalog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:18px}.catalog-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 9px 28px #24375d12}.catalog-card h3{margin:6px 0}.catalog-card p{color:#58657a}.catalog-tag{font-size:12px;font-weight:850;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}.catalog-outline{padding-left:20px;color:#475467}.learn-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 16px 45px #24375d17;overflow:hidden;margin-top:24px}.learn-head{padding:22px 28px;background:linear-gradient(130deg,#243fa8,#7259df);color:#fff}.learn-head h2{margin:5px 0}.learn-head p{margin:0;color:#eef0ff}.learn-head-row{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.head-link{border:1px solid #ffffff55;background:#ffffff17;color:#fff;border-radius:10px;padding:8px 12px;font:700 13px inherit;cursor:pointer}.learn-body{display:grid;grid-template-columns:210px 1fr;min-height:390px}.learn-nav{padding:24px;background:#f4f6ff;border-right:1px solid var(--line)}.step-pill{display:block;width:100%;border:0;text-align:left;padding:9px 11px;margin-bottom:8px;border-radius:10px;background:transparent;color:#667085;font:750 13px inherit;cursor:pointer}.step-pill:hover{background:#ffffffa8;color:var(--blue)}.step-pill.active{background:#fff;color:var(--blue);box-shadow:0 5px 16px #263b6712}.learn-content{padding:30px}.learn-content h3{font-size:25px;margin:0 0 14px}.dialogue{background:#f7f8fc;border-radius:16px;padding:17px 19px;margin:15px 0}.dialogue p{margin:7px 0}.formula{font-size:22px;font-weight:850;color:#2949b8;background:#eef2ff;border-radius:14px;padding:15px 18px;margin:15px 0}.example-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.example-box{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fff}.tip{border-left:4px solid #e3a008;background:#fff8e7;border-radius:10px;padding:12px 15px;margin-top:15px}.learn-actions{display:flex;justify-content:space-between;gap:12px;margin-top:26px}.practice-type{display:inline-block;padding:5px 9px;border-radius:8px;background:#eef2ff;color:var(--blue);font-size:12px;font-weight:800;margin-bottom:12px}.text-answer{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:13px 15px;font:inherit;font-size:18px}.word-bank,.built-line{display:flex;gap:9px;flex-wrap:wrap;min-height:55px;padding:11px;border-radius:13px}.built-line{border:2px dashed #bdc7e7;margin-bottom:12px}.word-chip{border:1.5px solid #cfd6e7;border-radius:10px;background:#fff;padding:9px 13px;font:700 17px inherit;cursor:pointer}.word-chip.used{opacity:.32;pointer-events:none}.feedback{margin-top:15px;padding:13px 15px;border-radius:12px;background:#f7f8fc}.feedback.good{background:#ebf8f3;color:var(--good)}.feedback.bad{background:#fff0f1;color:var(--bad)}.lesson-score{text-align:center;padding:25px}.lesson-score .big{font-size:48px;font-weight:900;color:var(--blue)}
+    @media(max-width:760px){.hero{padding:24px 20px}.hero h1{font-size:29px}.topbar{display:block}.page-tabs,.assist-controls{width:100%;margin-bottom:8px}.page-tab,.assist-toggle{flex:1}.question.active{grid-template-columns:1fr}.question{min-height:0}.context-side{padding:20px;border-right:0;border-bottom:1px solid var(--line)}.answer-side{padding:21px 18px}.scene{font-size:15px}.prompt{font-size:18px}.result-head{grid-template-columns:1fr;text-align:center}.score-ring{margin:auto}.skills,.catalog-grid{grid-template-columns:1fr}.learn-body{grid-template-columns:1fr}.learn-nav{display:flex;overflow:auto;gap:8px;border-right:0;border-bottom:1px solid var(--line);padding:13px}.step-pill{width:auto;white-space:nowrap;margin:0}.learn-content{padding:22px 18px}.example-grid{grid-template-columns:1fr}.learn-head-row{display:block}.head-link{margin-top:12px}}
+  </style>
+</head>
+<body class="hide-pinyin hide-meaning">
+<main class="shell">
+  <div class="topbar"><nav class="page-tabs"><button class="page-tab active" id="testTab" onclick="showTestPage()">Bài kiểm tra</button><button class="page-tab" id="catalogTab" onclick="showCatalog()">Xem 4 lộ trình</button></nav><div class="assist-controls"><button class="assist-toggle" id="pinyinToggle" onclick="toggleAssist('pinyin')">Hiện Pinyin</button><button class="assist-toggle" id="meaningToggle" onclick="toggleAssist('meaning')">Hiện nghĩa</button></div></div>
+  <section id="quiz">
+    <header class="hero">
+      <span class="tag">BÀI KIỂM TRA XẾP MỨC</span>
+      <h1>Trật tự từ tiếng Trung</h1>
+      <p>Chọn câu tự nhiên nhất trong từng tình huống. Bài kiểm tra đánh giá khả năng dùng S + V + O và cấu trúc Chủ đề + S + V trong giao tiếp thực tế.</p>
+      <div class="meta"><span>11 câu hỏi</span><span>Khoảng 6–8 phút</span><span>4 nội dung chẩn đoán</span></div>
+    </header>
+    <div class="progress-wrap"><div class="progress-row"><span>Tiến độ</span><span id="progressText">0/11</span></div><div class="bar"><i id="progressBar"></i></div></div>
+    <div id="questions"></div>
+    <div class="actions"><button class="back" id="back">← Quay lại</button><button class="submit" id="continue" disabled>Tiếp tục →</button></div>
+    <div class="notice" id="notice"></div>
+  </section>
+  <section id="result"></section>
+  <section id="learning"></section>
+  <section id="catalog"></section>
+  <div class="footer">Bài kiểm tra chẩn đoán • Ngữ pháp theo ngữ cảnh giao tiếp</div>
+</main>
+<script>
+const O=(h,p='')=>({h,p});
+const nodes={
+ svo:{name:'Nhận biết S + V + O',lesson:'Xác định chủ ngữ, động từ, tân ngữ và sự phù hợp về nghĩa.'},
+ osv:{name:'Nhận biết câu Chủ đề–Thuyết',lesson:'Nhận ra chủ đề đứng đầu và phần nhận xét phía sau.'},
+ limits:{name:'Tân ngữ có thể làm chủ đề',lesson:'Phân biệt đối tượng xác định với thông tin mới và nội dung tên gọi.'},
+ context:{name:'Chọn cấu trúc theo ngữ cảnh',lesson:'Dùng SVO cho thông tin mới; dùng Chủ đề–Thuyết khi đối tượng đã xác định.'}
+};
+const data=[
+ {node:'svo',level:'Test nhận biết SVO',q:'Dịch “Tôi tên là tiểu Nguyệt”',opts:[O('小月我叫。'),O('我叫小月。'),O('叫我小月。')],a:1},
+ {node:'svo',level:'Test nhận biết SVO',q:'Điền từ thích hợp vào chỗ trống “我吃……”',opts:[O('小月'),O('香蕉'),O('叫')],a:1},
+ {node:'svo',level:'Test nhận biết SVO',q:'Câu này sai ở đâu “我去小月。”',opts:[O('Tân ngữ không phù hợp với động từ'),O('Trật tự từ sai'),O('Tân ngữ không phù hợp với chủ ngữ')],a:0},
+ {node:'osv',level:'Test nhận biết OSV (Câu chủ đề, thuyết minh)',q:'Trong câu sau, đâu là chủ đề đang được bàn luận “这本书我看了。”',opts:[O('我看了'),O('这本书'),O('书')],a:1},
+ {node:'osv',level:'Test nhận biết OSV (Câu chủ đề, thuyết minh)',q:'Dịch “Hoa quả ai ăn?”',opts:[O('水果谁吃？'),O('水果吃谁？'),O('吃谁水果？')],a:0},
+ {node:'osv',level:'Test nhận biết OSV (Câu chủ đề, thuyết minh)',q:'Câu này sai ở đâu “水果我叫。”',opts:[O('Tân ngữ không phù hợp với động từ'),O('Trật tự từ sai'),O('Tân ngữ không phù hợp với chủ ngữ')],a:0},
+ {node:'limits',level:'Test tân ngữ nào không thể đảo lên làm chủ đề',q:'Câu nào sai ngữ pháp',opts:[O('香蕉我吃。'),O('这香蕉我吃。'),O('一个香蕉我吃。')],a:2},
+ {node:'limits',level:'Test tân ngữ nào không thể đảo lên làm chủ đề',q:'Câu nào sai ngữ pháp',opts:[O('我看了这本书。'),O('这本书我看了。'),O('一本书我看了。')],a:2},
+ {node:'limits',level:'Test tân ngữ nào không thể đảo lên làm chủ đề',q:'Câu nào đúng ngữ pháp',opts:[O('小月我认识。'),O('小月我叫。')],a:0},
+ {node:'context',level:'Test ngữ cảnh sử dụng',q:'Cho câu hỏi, chọn câu trả lời phù hợp nhất “周末你做什么了？”',opts:[O('我看了这本书。'),O('这本书，我看了。')],a:0},
+ {node:'context',level:'Test ngữ cảnh sử dụng',q:'Cho câu hỏi, chọn câu trả lời phù hợp nhất “这本书你看了吗？”',opts:[O('我看了这本书。'),O('这本书，我看了。')],a:1}
+];
+const T=i=>({type:'choice',q:data[i].q,opts:data[i].opts.map(o=>o.h),a:data[i].a,fromTest:true});
+const learningRoutes={
+ r1:{level:'Lộ trình 1 · Cơ bản',title:'Nhận biết trật tự S + V + O',steps:[
+  {title:'Hội thoại',body:`<div class="dialogue"><p>A：你叫什么名字？</p><p>B：我叫小月。</p><p>A：你吃什么？</p><p>B：我吃香蕉。</p></div><p>Trong câu trả lời, người nói bắt đầu từ người hoặc sự vật thực hiện hành động, sau đó nói hành động và đối tượng liên quan.</p>`},
+  {title:'Cấu trúc ví dụ',body:`<div class="formula">S + V + O</div><div class="example-grid"><div class="example-box"><b>我</b> + 叫 + 小月<br>Chủ ngữ + động từ + nội dung tên gọi</div><div class="example-box"><b>我</b> + 吃 + 香蕉<br>Chủ ngữ + động từ + tân ngữ</div><div class="example-box"><b>他</b> + 看 + 书<br>Anh ấy đọc sách</div><div class="example-box"><b>老师</b> + 教 + 汉语<br>Giáo viên dạy tiếng Trung</div></div>`},
+  {title:'Ngữ cảnh sử dụng',body:`<p>Dùng S + V + O khi kể một sự việc theo trật tự trung tính: <b>ai → làm gì → với ai/cái gì</b>.</p><div class="dialogue"><p>你周末做什么了？</p><p>我看了一本书。</p></div><p>SVO đặc biệt phù hợp khi tân ngữ là thông tin mới được đưa vào lần đầu.</p>`},
+  {title:'Lỗi hay mắc',body:`<div class="example-grid"><div class="example-box">❌ 小月我叫。<br>✅ 我叫小月。</div><div class="example-box">❌ 我去小月。<br>✅ 我去找小月。</div><div class="example-box">❌ 我香蕉吃。<br>✅ 我吃香蕉。</div><div class="example-box">Không chỉ đúng vị trí; động từ và tân ngữ còn phải phù hợp về nghĩa.</div></div><div class="tip">Tự hỏi: “Ai?” → “làm gì?” → “đối với ai/cái gì?”</div>`}
+ ],practice:[T(0),T(1),T(2),
+  {type:'choice',q:'Chọn câu theo trật tự S + V + O.',opts:['我喝水。','水我喝。','喝我水。'],a:0},
+  {type:'fill',q:'Điền động từ thích hợp: 他___汉语。',accept:['学','学习'],answer:'学 / 学习'},
+  {type:'arrange',q:'Ghép thành câu: “Tôi đọc cuốn sách này.”',tokens:['我','看','这本书'],answer:['我','看','这本书']},
+  {type:'free',q:'Đặt một câu S + V + O để nói “Tôi ăn táo”.',sample:'我吃苹果。'}]},
+ r2:{level:'Lộ trình 2 · Trung bình',title:'Nhận biết câu Chủ đề + S + V',steps:[
+  {title:'Hội thoại',body:`<div class="dialogue"><p>A：水果谁吃？</p><p>B：苹果我吃，香蕉你吃。</p></div><p>水果、苹果、香蕉 được đặt ở đầu vì đây là những đối tượng đang được bàn đến. Phần sau cho biết ai làm gì với từng đối tượng.</p>`},
+  {title:'Cấu trúc ví dụ',body:`<div class="formula">O（Chủ đề）+ S + V</div><p>Chủ đề O tương ứng với tân ngữ trực tiếp của cụm S + V.</p><div class="example-grid"><div class="example-box">我看了<b>这本书</b>。<br>→ <b>这本书</b>我看了。</div><div class="example-box">我认识<b>小月</b>。<br>→ <b>小月</b>我认识。</div><div class="example-box">我吃<b>苹果</b>。<br>→ <b>苹果</b>我吃。</div><div class="example-box">Cách kiểm tra: đưa chủ đề về sau động từ để khôi phục câu SVO.</div></div>`},
+  {title:'Ngữ cảnh sử dụng',body:`<p>Dùng cấu trúc này khi đối tượng đã được biết, đang ở trước mắt hoặc cần đối chiếu.</p><div class="dialogue"><p>A：这本书你看了吗？</p><p>B：这本书，我看了。</p></div><p>Trọng tâm chuyển từ “tôi đã làm gì” sang “còn cuốn sách này thì sao”.</p>`},
+  {title:'Lỗi hay mắc',body:`<div class="example-grid"><div class="example-box">Chỉ đổi vị trí nhưng quên kiểm tra nghĩa:<br>❌ 水果我叫。</div><div class="example-box">Chủ đề phải là toàn bộ cụm xác định:<br>这本书, không chỉ 书.</div><div class="example-box">Không phải thành phần đầu câu nào cũng là O:<br>今天我不上课。</div><div class="example-box">Không hiểu OSV là “câu bị đảo tùy ý”. Nó là cách tổ chức Chủ đề–Thuyết.</div></div>`}
+ ],practice:[T(3),T(4),T(5),
+  {type:'choice',q:'Câu nào có 这件事 làm chủ đề?',opts:['这件事，我知道。','我知道一件事。','我这件事知道。'],a:0},
+  {type:'fill',q:'Điền chủ ngữ: 这本书，___看了。',accept:['我'],answer:'我'},
+  {type:'arrange',q:'Ghép câu theo cấu trúc Chủ đề + S + V.',tokens:['苹果','我','吃'],answer:['苹果','我','吃']},
+  {type:'free',q:'Đặt câu Chủ đề + S + V để nói “Cuốn sách này tôi đã mua rồi”.',sample:'这本书我买了。'}]},
+ r3:{level:'Lộ trình 3 · Nâng cao',title:'Giới hạn đưa O lên đầu và ngữ cảnh sử dụng',steps:[
+  {title:'Hội thoại',body:`<div class="dialogue"><p>A：周末你做什么了？</p><p>B：我看了一本书。</p><hr><p>A：这本书你看了吗？</p><p>B：这本书，我看了。</p></div><p>Cùng nói về hành động đọc, nhưng câu hỏi trước quyết định dùng lời kể SVO hay cấu trúc Chủ đề–Thuyết.</p>`},
+  {title:'Phân biệt hai cấu trúc',body:`<div class="example-grid"><div class="example-box"><b>S + V + O</b><br>我看了一本书。<br>Giới thiệu sự việc và đối tượng mới.</div><div class="example-box"><b>O + S + V</b><br>这本书我看了。<br>Nhận xét về đối tượng đã xác định.</div></div><div class="tip">Không lựa chọn bằng công thức máy móc. Hãy xét người nghe đã biết đối tượng nào và người nói muốn bàn về điều gì.</div>`},
+  {title:'Khi không được đảo O',body:`<div class="example-grid"><div class="example-box"><b>Thông tin mới</b><br>✅ 我看了一本书。<br>Không dùng 一本书我看了 trong lời kể trung tính.</div><div class="example-box"><b>Nội dung tên gọi</b><br>✅ 我叫小月。<br>❌ 小月我叫。</div><div class="example-box"><b>Không hợp với động từ</b><br>❌ 水果我叫。<br>水果 không tạo quan hệ nghĩa với 我叫.</div><div class="example-box"><b>Cụm chỉ định chưa đủ</b><br>这香蕉 thiếu lượng từ; chuẩn hơn là 这根香蕉.</div></div>`},
+  {title:'Ngữ cảnh sử dụng',body:`<p>Trước khi đưa O lên đầu, kiểm tra ba câu hỏi:</p><ol><li>Người nghe đã xác định được đối tượng chưa?</li><li>Người nói có muốn lấy nó làm chủ đề hoặc đối chiếu không?</li><li>Phần S + V còn lại có tạo thành nhận xét tự nhiên về nó không?</li></ol><div class="dialogue"><p>Thông tin mới: 我买了一本书。</p><p>Đối tượng đã biết: 这本书我买了。</p><p>Đối chiếu: 这本我买了，那本我没买。</p></div>`}
+ ],practice:[T(6),T(7),T(8),T(9),T(10),
+  {type:'choice',q:'Bạn vừa mua một cuốn sách và người nghe chưa biết cuốn nào. Chọn câu phù hợp.',opts:['我买了一本书。','一本书我买了。','这本书我买了。'],a:0},
+  {type:'fill',q:'A：这本书你看了吗？ B：这本书，___看了。',accept:['我'],answer:'我'},
+  {type:'arrange',q:'Ghép câu đối chiếu đúng.',tokens:['这本书','我看了，','那本书','我没看'],answer:['这本书','我看了，','那本书','我没看']},
+  {type:'free',q:'Đặt hai câu: một câu giới thiệu một cuốn sách mới và một câu nói về cuốn sách đã biết.',sample:'我买了一本书。/ 这本书我买了。'}]},
+ r4:{level:'Lộ trình 4 · Tổng hợp',title:'Lý thuyết và luyện tập tổng hợp',steps:[
+  {title:'Hội thoại',body:`<div class="dialogue"><p>A：周末你做什么了？</p><p>B：我看了一本书。</p><p>A：这本书你看完了吗？</p><p>B：这本书我看完了，那本书我还没看。</p></div><p>Người nói đi từ SVO để giới thiệu thông tin mới sang Chủ đề–Thuyết khi đối tượng đã trở thành thông tin chung.</p>`},
+  {title:'Cấu trúc ví dụ',body:`<div class="example-grid"><div class="example-box"><div class="formula">S + V + O</div>我吃香蕉。<br>我认识小月。<br>我看了一本书。</div><div class="example-box"><div class="formula">O + S + V</div>香蕉我吃。<br>小月我认识。<br>这本书我看了。</div></div><p>Ở OSV, O là chủ đề và thường tương ứng với tân ngữ trực tiếp của cụm S + V.</p>`},
+  {title:'Ngữ cảnh sử dụng',body:`<div class="example-grid"><div class="example-box"><b>SVO</b><br>Kể trung tính<br>Giới thiệu thông tin mới<br>Trả lời “ai làm gì?”</div><div class="example-box"><b>Chủ đề–Thuyết</b><br>Đối tượng đã xác định<br>Tiếp nối câu hỏi trước<br>Đối chiếu hoặc phân chia</div></div><div class="tip">Khôi phục OSV về SVO và kiểm tra: chủ đề có thật sự là tân ngữ của động từ không?</div>`},
+  {title:'Lỗi hay mắc',body:`<ul><li>Đưa thông tin mới như 一本书 lên làm chủ đề mà không có ngữ cảnh.</li><li>Đảo nội dung tên gọi: 小月我叫。</li><li>Chỉ nhìn trật tự mà bỏ qua nghĩa: 水果我叫。</li><li>Dùng cấu trúc đánh dấu dù tình huống chỉ cần lời kể trung tính.</li></ul><div class="dialogue"><p>✅ 我叫小月。　✅ 小月我认识。</p><p>✅ 我看了一本书。　✅ 这本书我看了。</p></div>`}
+ ],practice:[...data.map((_,i)=>T(i)),
+  {type:'fill',q:'Điền từ: 我___香蕉。',accept:['吃'],answer:'吃'},
+  {type:'arrange',q:'Ghép câu kể trung tính.',tokens:['我','买了','一本书'],answer:['我','买了','一本书']},
+  {type:'arrange',q:'Ghép câu Chủ đề–Thuyết.',tokens:['这本书','我','看了'],answer:['这本书','我','看了']},
+ {type:'free',q:'Tự đặt một cặp câu SVO và OSV cùng nói về một hành động.',sample:'我买了这本书。/ 这本书我买了。'}]}
+};
+const assistData={
+ '小月我叫。':['Xiǎoyuè wǒ jiào.','Tiểu Nguyệt tôi tên là.'],
+ '我叫小月。':['wǒ jiào Xiǎoyuè.','Tôi tên là Tiểu Nguyệt.'],
+ '叫我小月。':['jiào wǒ Xiǎoyuè.','Gọi tôi là Tiểu Nguyệt.'],
+ '我吃香蕉。':['wǒ chī xiāngjiāo.','Tôi ăn chuối.'],
+ '我去小月。':['wǒ qù Xiǎoyuè.','Tôi đi Tiểu Nguyệt.'],
+ '我去找小月。':['wǒ qù zhǎo Xiǎoyuè.','Tôi đi tìm Tiểu Nguyệt.'],
+ '这本书我看了。':['zhè běn shū wǒ kànle.','Cuốn sách này tôi đã đọc.'],
+ '我看了这本书。':['wǒ kànle zhè běn shū.','Tôi đã đọc cuốn sách này.'],
+ '一本书我看了。':['yī běn shū wǒ kànle.','Một cuốn sách tôi đã đọc.'],
+ '水果谁吃？':['shuǐguǒ shéi chī?','Hoa quả ai ăn?'],
+ '水果吃谁？':['shuǐguǒ chī shéi?','Hoa quả ăn ai?'],
+ '吃谁水果？':['chī shéi shuǐguǒ?','Ăn hoa quả của ai?'],
+ '水果我叫。':['shuǐguǒ wǒ jiào.','Hoa quả tôi tên là.'],
+ '香蕉我吃。':['xiāngjiāo wǒ chī.','Chuối thì tôi ăn.'],
+ '这香蕉我吃。':['zhè xiāngjiāo wǒ chī.','Chuối này thì tôi ăn.'],
+ '一个香蕉我吃。':['yī ge xiāngjiāo wǒ chī.','Một quả chuối thì tôi ăn.'],
+ '小月我认识。':['Xiǎoyuè wǒ rènshi.','Tiểu Nguyệt thì tôi quen.'],
+ '周末你做什么了？':['zhōumò nǐ zuò shénme le?','Cuối tuần bạn đã làm gì?'],
+ '这本书你看了吗？':['zhè běn shū nǐ kànle ma?','Cuốn sách này bạn đã đọc chưa?'],
+ '我看了':['wǒ kànle','Tôi đã đọc.'],
+ '这本书':['zhè běn shū','cuốn sách này'],
+ '一本书':['yī běn shū','một cuốn sách'],
+ '小月':['Xiǎoyuè','Tiểu Nguyệt'],
+ '香蕉':['xiāngjiāo','chuối'],
+ '水果':['shuǐguǒ','hoa quả'],
+ '我喝水。':['wǒ hē shuǐ.','Tôi uống nước.'],
+ '水我喝。':['shuǐ wǒ hē.','Nước thì tôi uống.'],
+ '喝我水。':['hē wǒ shuǐ.','Uống tôi nước.'],
+ '他学汉语。':['tā xué Hànyǔ.','Anh ấy học tiếng Trung.'],
+ '他学习汉语。':['tā xuéxí Hànyǔ.','Anh ấy học tiếng Trung.'],
+ '我看这本书。':['wǒ kàn zhè běn shū.','Tôi đọc cuốn sách này.'],
+ '我吃苹果。':['wǒ chī píngguǒ.','Tôi ăn táo.'],
+ '这件事，我知道。':['zhè jiàn shì, wǒ zhīdào.','Việc này tôi biết.'],
+ '我知道一件事。':['wǒ zhīdào yī jiàn shì.','Tôi biết một việc.'],
+ '我这件事知道。':['wǒ zhè jiàn shì zhīdào.','Tôi việc này biết.'],
+ '苹果我吃。':['píngguǒ wǒ chī.','Táo thì tôi ăn.'],
+ '这本书我买了。':['zhè běn shū wǒ mǎile.','Cuốn sách này tôi đã mua.'],
+ '我买了一本书。':['wǒ mǎile yī běn shū.','Tôi đã mua một cuốn sách.'],
+ '一本书我买了。':['yī běn shū wǒ mǎile.','Một cuốn sách tôi đã mua.'],
+ '这本书我买了，那本书我没买。':['zhè běn shū wǒ mǎile, nà běn shū wǒ méi mǎi.','Cuốn này tôi đã mua, cuốn kia tôi chưa mua.'],
+ '我买了这本书。':['wǒ mǎile zhè běn shū.','Tôi đã mua cuốn sách này.'],
+ '我买了':['wǒ mǎile','Tôi đã mua.'],
+ '那本书':['nà běn shū','cuốn sách kia'],
+ '我没看':['wǒ méi kàn','tôi chưa đọc'],
+ '我':['wǒ','tôi'],
+ '他':['tā','anh ấy'],
+ '吃':['chī','ăn'],
+ '叫':['jiào','tên là / gọi'],
+ '学':['xué','học'],
+ '学习':['xuéxí','học'],
+ '看':['kàn','đọc / xem'],
+ '看了':['kànle','đã đọc / đã xem'],
+ '买了':['mǎile','đã mua'],
+ '汉语':['Hànyǔ','tiếng Trung'],
+ '这件事':['zhè jiàn shì','việc này'],
+ '苹果':['píngguǒ','táo'],
+ '书':['shū','sách']
+};
+const assistKeys=Object.keys(assistData).sort((a,b)=>b.length-a.length),assistPattern=new RegExp(assistKeys.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
+function decorateText(text){return String(text).replace(assistPattern,k=>`<span class="assist-unit"><span class="hanzi">${k}</span><span class="assist-pinyin">${assistData[k][0]}</span><span class="assist-meaning">${assistData[k][1]}</span></span>`)}
+function toggleAssist(kind){const cls=kind==='pinyin'?'hide-pinyin':'hide-meaning',btn=document.getElementById(kind==='pinyin'?'pinyinToggle':'meaningToggle'),hidden=document.body.classList.toggle(cls);btn.classList.toggle('active',!hidden);btn.textContent=`${hidden?'Hiện':'Ẩn'} ${kind==='pinyin'?'Pinyin':'nghĩa'}`}
+const selected=Array(data.length).fill(null), letters=['A','B','C'];let current=0;
+const host=document.getElementById('questions');
+data.forEach((x,i)=>{const el=document.createElement('article');el.className='question'+(i===0?' active':'');el.innerHTML=`<div class="context-side"><div class="qtop"><span>Câu ${i+1} / ${data.length}</span><span>${x.level}</span></div><div class="prompt">${decorateText(x.q)}</div></div><div class="answer-side"><div class="options">${x.opts.map((o,j)=>`<button class="option" data-i="${i}" data-j="${j}"><span class="letter">${letters[j]}</span><span class="cn">${decorateText(o.h)}</span></button>`).join('')}</div></div>`;host.appendChild(el)});
+const nextBtn=document.getElementById('continue'),backBtn=document.getElementById('back');
+function renderStep(){document.querySelectorAll('.question').forEach((q,i)=>q.classList.toggle('active',i===current));document.getElementById('progressText').textContent=`Câu ${current+1}/${data.length}`;document.getElementById('progressBar').style.width=`${(current+1)/data.length*100}%`;backBtn.disabled=current===0;nextBtn.disabled=selected[current]===null;nextBtn.textContent=current===data.length-1?'Xem kết quả':'Tiếp tục →';document.getElementById('notice').textContent='';window.scrollTo({top:0,behavior:'smooth'})}
+host.addEventListener('click',e=>{const b=e.target.closest('.option');if(!b)return;const i=+b.dataset.i,j=+b.dataset.j;selected[i]=j;b.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');nextBtn.disabled=false;document.getElementById('notice').textContent=''});
+nextBtn.onclick=()=>{if(selected[current]===null){document.getElementById('notice').textContent='Hãy chọn một đáp án trước khi tiếp tục.';return}if(current===data.length-1){showResult();return}current++;renderStep()};backBtn.onclick=()=>{if(current>0){current--;renderStep()}};
+function resetQuiz(){current=0;selected.fill(null);document.querySelectorAll('.option.selected').forEach(b=>b.classList.remove('selected'));const r=document.getElementById('result');r.innerHTML='';r.style.display='none';const l=document.getElementById('learning');l.innerHTML='';l.style.display='none';document.getElementById('quiz').style.display='block';renderStep()}
+let learnState={route:null,slide:0,practice:false,index:0,results:[],answer:null,order:[],locked:false,source:'result'};
+function setPageTab(name){document.getElementById('testTab').classList.toggle('active',name==='test');document.getElementById('catalogTab').classList.toggle('active',name==='catalog')}
+function hidePages(){['quiz','result','learning','catalog'].forEach(id=>document.getElementById(id).style.display='none')}
+function showTestPage(){hidePages();setPageTab('test');document.getElementById(document.getElementById('result').innerHTML?'result':'quiz').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
+function showCatalog(){hidePages();setPageTab('catalog');const c=document.getElementById('catalog');c.style.display='block';c.innerHTML=`<div class="catalog-hero"><span class="tag">THƯ VIỆN LỘ TRÌNH</span><h1>Xem trước 4 lộ trình học</h1><p>Mở bất kỳ lộ trình nào để xem toàn bộ phần lý thuyết và luyện tập mà không cần hoàn thành bài kiểm tra xếp mức.</p></div><div class="catalog-grid">${[
+ ['r1','Cơ bản','Dành cho người chưa vững S + V + O','Hội thoại|Cấu trúc ví dụ|Ngữ cảnh sử dụng|Lỗi hay mắc'],
+ ['r2','Trung bình','Nhận biết O + S + V và câu Chủ đề–Thuyết','Hội thoại|Cấu trúc ví dụ|Ngữ cảnh sử dụng|Lỗi hay mắc'],
+ ['r3','Nâng cao','Phân biệt khi nào O có thể hoặc không thể làm chủ đề','Hội thoại|Phân biệt hai cấu trúc|Trường hợp không được đảo O|Ngữ cảnh sử dụng'],
+ ['r4','Tổng hợp','Ôn toàn bộ kiến thức và luyện tập tích hợp','Hội thoại|Cấu trúc ví dụ|Ngữ cảnh sử dụng|Lỗi hay mắc']
+ ].map(x=>`<article class="catalog-card"><div class="catalog-tag">Lộ trình ${x[1]}</div><h3>${learningRoutes[x[0]].title}</h3><p>${x[2]}</p><ol class="catalog-outline">${x[3].split('|').map(y=>`<li>${y}</li>`).join('')}<li>Luyện tập</li></ol><button class="submit" onclick="startLearning('${x[0]}','preview')">Xem đầy đủ →</button></article>`).join('')}</div>`;window.scrollTo({top:0,behavior:'smooth'})}
+function chooseLearningRoute(scores,total){
+ if(total>=9)return 'r4';
+ const svoWrong=3-scores.svo.right,osvWrong=3-scores.osv.right,advancedWrong=5-(scores.limits.right+scores.context.right);
+ if(svoWrong>=2)return 'r1';
+ if(osvWrong>=2)return 'r2';
+ if(advancedWrong>=3)return 'r3';
+ const rates=[['r1',svoWrong/3],['r2',osvWrong/3],['r3',advancedWrong/5]];
+ rates.sort((a,b)=>b[1]-a[1]);return rates[0][0];
+}
+function startLearning(key,source='result'){
+ learnState={route:key,slide:0,practice:false,index:0,results:[],answer:null,order:[],locked:false,source};
+ hidePages();setPageTab(source==='preview'?'catalog':'test');document.getElementById('learning').style.display='block';renderTheory();window.scrollTo({top:0,behavior:'smooth'});
+}
+function lessonShell(route,nav,content){const back=learnState.source==='preview'?`<button class="head-link" onclick="showCatalog()">← Danh sách 4 lộ trình</button>`:`<button class="head-link" onclick="backToResult()">← Kết quả bài test</button>`;return `<div class="learn-card"><div class="learn-head"><div class="learn-head-row"><div><div>${route.level}</div><h2>${route.title}</h2><p>Lý thuyết theo từng màn → luyện tập thích ứng</p></div>${back}</div></div><div class="learn-body"><aside class="learn-nav">${nav}</aside><div class="learn-content">${content}</div></div></div>`}
+function backToResult(){hidePages();setPageTab('test');document.getElementById('result').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
+function lessonNav(route,active){return route.steps.map((x,i)=>`<button class="step-pill ${active===i?'active':''}" onclick="goLessonTab(${i})">${i+1}. ${x.title}</button>`).join('')+`<button class="step-pill ${active===4?'active':''}" onclick="goLessonTab(4)">5. Luyện tập</button>`}
+function goLessonTab(i){const route=learningRoutes[learnState.route];if(i<route.steps.length){learnState.slide=i;learnState.practice=false;renderTheory()}else{if(!learnState.practice&&learnState.results.length===0)startPractice();else{learnState.practice=true;renderPractice()}}window.scrollTo({top:0,behavior:'smooth'})}
+function renderTheory(){
+ const route=learningRoutes[learnState.route],s=route.steps[learnState.slide];
+ const nav=lessonNav(route,learnState.slide);
+ const content=`<div class="practice-type">LÝ THUYẾT ${learnState.slide+1}/${route.steps.length}</div><h3>${s.title}</h3>${s.body}<div class="learn-actions"><button class="back" onclick="moveTheory(-1)" ${learnState.slide===0?'disabled':''}>← Quay lại</button><button class="submit" onclick="moveTheory(1)">${learnState.slide===route.steps.length-1?'Bắt đầu luyện tập →':'Tiếp tục →'}</button></div>`;
+ document.getElementById('learning').innerHTML=lessonShell(route,nav,content);
+}
+function moveTheory(d){const route=learningRoutes[learnState.route];if(d<0&&learnState.slide>0){learnState.slide--;renderTheory();return}if(d>0&&learnState.slide<route.steps.length-1){learnState.slide++;renderTheory();return}if(d>0)startPractice()}
+function startPractice(){learnState.practice=true;learnState.index=0;learnState.results=[];resetPracticeItem();renderPractice()}
+function resetPracticeItem(){learnState.answer=null;learnState.order=[];learnState.locked=false}
+function normalizeAnswer(v){return String(v||'').replace(/[\s。！？,.，]/g,'').toLowerCase()}
+function renderPractice(){
+ const route=learningRoutes[learnState.route],items=route.practice;
+ if(learnState.index>=items.length){renderPracticeResult();return}
+ const x=items[learnState.index],typeName={choice:'Chọn đáp án',fill:'Điền vào chỗ trống',arrange:'Ghép từ thành câu',free:'Đặt câu'}[x.type];
+ const nav=lessonNav(route,4);
+ let task='';
+ if(x.type==='choice')task=`<div class="options">${x.opts.map((o,i)=>`<button class="option ${learnState.answer===i?'selected':''}" onclick="answerChoice(${i})" ${learnState.locked?'disabled':''}><span class="letter">${letters[i]}</span><span class="cn">${decorateText(o)}</span></button>`).join('')}</div>`;
+ if(x.type==='fill')task=`<input class="text-answer" id="practiceInput" placeholder="Nhập đáp án" value="${learnState.answer||''}" ${learnState.locked?'disabled':''}><div class="learn-actions"><span></span><button class="submit" onclick="submitFill()" ${learnState.locked?'disabled':''}>Kiểm tra</button></div>`;
+ if(x.type==='arrange')task=`<div class="built-line">${learnState.order.map((j,k)=>`<button class="word-chip" onclick="removeWord(${k})">${decorateText(x.tokens[j])}</button>`).join('')||'<span style="color:#98a2b3">Bấm các thẻ theo đúng thứ tự</span>'}</div><div class="word-bank">${x.tokens.map((w,i)=>`<button class="word-chip ${learnState.order.includes(i)?'used':''}" onclick="addWord(${i})">${decorateText(w)}</button>`).join('')}</div><div class="learn-actions"><button class="back" onclick="clearWords()">Xóa thứ tự</button><button class="submit" onclick="submitArrange()" ${learnState.locked?'disabled':''}>Kiểm tra</button></div>`;
+ if(x.type==='free')task=`<textarea class="text-answer" id="practiceInput" rows="3" placeholder="Tự viết câu của bạn" ${learnState.locked?'disabled':''}>${learnState.answer||''}</textarea><div class="learn-actions"><span></span><button class="submit" onclick="submitFree()" ${learnState.locked?'disabled':''}>Xem câu tham khảo</button></div>`;
+ let feedback='';if(learnState.locked){const res=learnState.results[learnState.index];feedback=`<div class="feedback ${res.correct===false?'bad':'good'}">${res.correct===true?'✓ Chính xác':res.correct===false?'✗ Chưa đúng':'✓ Đã hoàn thành'}<br><b>Đáp án/câu tham khảo:</b> ${decorateText(res.model)}</div><div class="learn-actions"><span></span><button class="submit" onclick="nextPractice()">${learnState.index===items.length-1?'Xem kết quả luyện tập':'Câu tiếp theo →'}</button></div>`}
+ const content=`<div class="practice-type">${typeName} · ${learnState.index+1}/${items.length}${x.fromTest?' · Câu từ bài kiểm tra':''}</div><h3>${decorateText(x.q)}</h3>${task}${feedback}`;
+ document.getElementById('learning').innerHTML=lessonShell(route,nav,content);
+}
+function lockPractice(correct,model){learnState.locked=true;learnState.results[learnState.index]={correct,model};renderPractice()}
+function answerChoice(i){if(learnState.locked)return;const x=learningRoutes[learnState.route].practice[learnState.index];learnState.answer=i;lockPractice(i===x.a,`${letters[x.a]}. ${x.opts[x.a]}`)}
+function submitFill(){const x=learningRoutes[learnState.route].practice[learnState.index],el=document.getElementById('practiceInput');if(!el.value.trim())return;learnState.answer=el.value;lockPractice(x.accept.some(a=>normalizeAnswer(a)===normalizeAnswer(el.value)),x.answer)}
+function addWord(i){if(learnState.locked||learnState.order.includes(i))return;learnState.order.push(i);renderPractice()}
+function removeWord(k){if(learnState.locked)return;learnState.order.splice(k,1);renderPractice()}
+function clearWords(){if(learnState.locked)return;learnState.order=[];renderPractice()}
+function submitArrange(){const x=learningRoutes[learnState.route].practice[learnState.index];if(learnState.order.length!==x.tokens.length)return;const made=learnState.order.map(i=>x.tokens[i]);lockPractice(JSON.stringify(made)===JSON.stringify(x.answer),x.answer.join(''))}
+function submitFree(){const x=learningRoutes[learnState.route].practice[learnState.index],el=document.getElementById('practiceInput');if(!el.value.trim())return;learnState.answer=el.value;lockPractice(null,x.sample)}
+function nextPractice(){learnState.index++;resetPracticeItem();renderPractice()}
+function renderPracticeResult(){
+ const route=learningRoutes[learnState.route],graded=learnState.results.filter(x=>x.correct!==null),right=graded.filter(x=>x.correct).length,open=learnState.results.length-graded.length;
+ const nav=lessonNav(route,4);
+ const content=`<div class="lesson-score"><div class="big">${right}/${graded.length}</div><h3>Hoàn thành ${route.title}</h3><p>${open?`Bạn cũng đã hoàn thành ${open} bài đặt câu mở.`:''}</p><p>${right===graded.length?'Bạn đã làm đúng toàn bộ câu có đáp án cố định.':'Hãy xem lại những câu chưa đúng và thử luyện tập lại.'}</p><button class="submit" onclick="startLearning('${learnState.route}','${learnState.source}')">Học và luyện lại</button> <button class="restart" onclick="resetQuiz()">Làm lại bài kiểm tra</button></div>`;
+ document.getElementById('learning').innerHTML=lessonShell(route,nav,content);
+}
+function showResult(){
+ const groups=['svo','osv','limits','context'];const scores={};groups.forEach(g=>scores[g]={right:0,total:0});data.forEach((x,i)=>{scores[x.node].total++;if(selected[i]===x.a)scores[x.node].right++});
+ const total=data.reduce((n,x,i)=>n+(selected[i]===x.a),0), pct=Math.round(total/data.length*100);
+ const routeKey=chooseLearningRoute(scores,total),recommended=learningRoutes[routeKey];
+ let level,title,diag,route;
+ if(pct<45){level='Nền tảng';title='Cần củng cố cách nhận diện cấu trúc';diag='Bạn còn nhầm giữa vai trò thành phần câu và quan hệ nghĩa với động từ.';route='Học lại SVO trước, sau đó nhận diện chủ đề và phần thuyết minh.'}
+ else if(pct<70){level='Đang hình thành';title='Đã nhận ra cấu trúc nhưng chưa ổn định';diag='Bạn có nền tảng, nhưng còn nhầm khi đưa tân ngữ lên đầu hoặc khi thay đổi ngữ cảnh.';route='Ưu tiên nhóm có điểm thấp nhất trong bản đồ kiến thức bên dưới.'}
+ else if(pct<90){level='Thông hiểu';title='Hiểu cấu trúc, cần tăng độ chính xác';diag='Bạn phân biệt được SVO và Chủ đề–Thuyết trong phần lớn trường hợp.';route='Luyện thêm các cặp câu đều đúng nhưng khác trọng tâm và điều kiện sử dụng.'}
+ else{level='Vận dụng tốt';title='Phân biệt tốt cấu trúc và ngữ cảnh';diag='Bạn nhận diện được cấu trúc, giới hạn của phép đưa tân ngữ lên đầu và lựa chọn theo hội thoại.';route='Có thể chuyển sang bài sản sinh câu và sửa lỗi mở.'}
+ const skillHTML=groups.map(g=>{const s=scores[g],p=Math.round(s.right/s.total*100);return `<div class="skill"><div class="skill-top"><span>${nodes[g].name}</span><span>${s.right}/${s.total}</span></div><div class="mini"><i style="width:${p}%"></i></div></div>`}).join('');
+ const review=data.map((x,i)=>{const ok=selected[i]===x.a,o=x.opts[x.a];return `<div class="review-item ${ok?'good':'bad'}"><div><span class="status">${ok?'✓ Đúng':'✗ Cần xem lại'}</span> · Câu ${i+1} · ${x.level}</div><div class="explain"><b>Đáp án:</b> ${letters[x.a]}. ${decorateText(o.h)}</div></div>`}).join('');
+ document.getElementById('quiz').style.display='none';document.getElementById('learning').style.display='none';const r=document.getElementById('result');r.style.display='block';r.innerHTML=`<div class="result-card"><div class="result-head"><div class="score-ring" style="--pct:${pct*3.6}deg"><b>${total}/${data.length}</b></div><div><div>Kết quả xếp mức</div><div class="level">${level}</div><h2 style="margin:2px 0">${title}</h2><p class="diagnosis">${diag}</p></div></div><h3>Bản đồ kiến thức</h3><div class="skills">${skillHTML}</div><div class="route"><h3>Lộ trình được đề xuất</h3><h2>${recommended.title}</h2><p>${route}</p><button class="submit" onclick="startLearning('${routeKey}')">Bắt đầu lộ trình →</button></div><div class="review"><h3>Đáp án từng câu</h3>${review}</div><button class="restart" onclick="resetQuiz()">Làm lại bài test</button></div>`;window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
